@@ -1,25 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
-import Progress from "./pages/Progress";
-import Report from './pages/Report';
-import Doctordashboard from "./pages/Doctordashboard";
-import Rewards from "./pages/Rewards";
+import Home from "./pages/Home/Home";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
+import Profile from "./pages/Profile/Profile";
+import Progress from "./pages/Progress/Progress";
+import Report from './pages/Report/Report';
+import Doctordashboard from "./pages/DoctorDashboard/Doctordashboard";
+import Rewards from "./pages/Rewards/Rewards";
 const App = () => {
   return (
     <Router>
       <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/Signup" element={<Signup />} />
-      <Route path="/Login" element={<Login/>} />
-      <Route path="/Profile" element={<Profile/>} />
-      <Route path="/Progress" element={<Progress/>} />
-      <Route path="/Report" element={<Report/>}/>
-      <Route path="/Rewards" element={<Rewards/>} />
-      <Route path="/Doctordashboard" element={<Doctordashboard />}/>
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/profile" element={<Profile/>} />
+      <Route path="/progress" element={<Progress/>} />
+      <Route path="/report" element={<Report/>}/>
+      <Route path="/rewards" element={<Rewards/>} />
+      <Route path="/doctordashboard" element={<Doctordashboard />}/>
       </Routes>
     </Router>
   );
