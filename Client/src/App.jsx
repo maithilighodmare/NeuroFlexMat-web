@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 const App = () => {
   return (
     <Router>
-      <Navbar/>
+     
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Signup />} />
@@ -22,6 +22,7 @@ const App = () => {
       <Route path="/report" element={<Report/>}/>
       <Route path="/rewards" element={<Rewards/>} />
       <Route path="/doctordashboard" element={<Doctordashboard />}/>
+      <Route path="/progress" element={<Progress />}/>
       </Routes>
     </Router>
   );
