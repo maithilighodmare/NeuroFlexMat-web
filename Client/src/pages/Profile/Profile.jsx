@@ -5,6 +5,7 @@ import {
   FaDumbbell, FaFileAlt, FaUserMd 
 } from "react-icons/fa";
 import "./Profile.css";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -24,9 +25,10 @@ const Profile = () => {
         <input type="text" className="search-bar" placeholder="Search" />
         
         <nav className="menu">
-          <button className="menu-item active">
+         
+         <Link to='/'> <button className="menu-item active">
             <FaHome className="menu-icon" /> Home
-          </button>
+          </button></Link>
           <button className="menu-item">
             <FaChartLine className="menu-icon" /> Dashboard
           </button>
@@ -53,7 +55,7 @@ const Profile = () => {
         <div className="profile-header">
           <FaUserCircle className="profile-avatar" />
           <div className="profile-info">
-            <h1>Aashvi Tekade</h1>
+            <h1>-</h1>
             <p>NeuroFlex Therapy Participant</p>
           </div>
         </div>
