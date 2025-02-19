@@ -1,64 +1,57 @@
-import React, { useState, useEffect } from "react";
-import { FiHome, FiUser, FiStar, FiPhone } from "react-icons/fi"; // Updated icons
+import React from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import "./styles.css";
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState("home");
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const handleScroll = (e, sectionId) => {
-    e.preventDefault();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setActiveTab(sectionId);
-    }
-  };
-
   return (
-    <nav className={`navbar ${isSmallScreen ? "small-navbar" : ""}`}>
-      {/* Logo & Title */}
-      <div className="logo-container">
-        <img src="/assets/images/logo.png" alt="NeuroFlex Logo" className="logo" />
-        <span className="title">NeuroFlex</span>
+    <>
+      {/* Top Bar */}
+      <div className="top-bar">
+        <div className="contact-info">
+          <span><FaPhoneAlt className="icon" /> +463281626556</span>
+          <span><FaEnvelope className="icon" /> hellomedic@gmail.com</span>
+        </div>
+        <div className="social-icons">
+          <a id="icon" href="#"><FaFacebookF /></a>
+          <a id="icon" href="#"><FaTwitter /></a>
+          <a id="icon" href="#"><FaLinkedinIn /></a>
+        </div>
       </div>
 
-      {/* Navigation Links */}
-      <ul className="nav-links">
-        <li className={`nav-item ${activeTab === "home" ? "active" : ""}`}>
-          <a href="#home" onClick={(e) => handleScroll(e, "home")}>
-            <FiHome size={24} />
-            <span>Home</span>
-          </a>
-        </li>
-        <li className={`nav-item ${activeTab === "about" ? "active" : ""}`}>
-          <a href="#about" onClick={(e) => handleScroll(e, "about")}>
-            <FiUser size={24} />
-            <span>About</span>
-          </a>
-        </li>
-        <li className={`nav-item ${activeTab === "reviews" ? "active" : ""}`}>
-          <a href="#reviews" onClick={(e) => handleScroll(e, "reviews")}>
-            <FiStar size={24} />
-            <span>Reviews</span>
-          </a>
-        </li>
-        <li className={`nav-item ${activeTab === "contact" ? "active" : ""}`}>
-          <a href="#contact" onClick={(e) => handleScroll(e, "contact")}>
-            <FiPhone size={24} />
-            <span>Contact</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+      {/* Navigation Bar */}
+      <nav className="navbar">
+        <div className="logo">🩺NeuroFlex</div>
+        <ul className="nav-links">
+          <li>
+            <ScrollLink to="hero" smooth={true} duration={500} offset={-70}>
+              Home
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="about" smooth={true} duration={500} offset={-70}>
+              About
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="health" smooth={true} duration={500} offset={-70}>
+              Reviews
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="reviews" smooth={true} duration={500} offset={-70}>
+          FAQs
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="faq" smooth={true} duration={500} offset={-70}>
+              Contact
+            </ScrollLink>
+          </li>
+          
+        </ul>
+      </nav>
+    </>
   );
 };
 

@@ -1,205 +1,165 @@
-/* Base Styles */
-body {
-  font-family: Arial, sans-serif;
-  background: #8fa6c9;
-  margin: 0;
-  padding: 0;
-}
-
-.profile-container {
+/* General Layout */
+.dashboard-container {
   display: flex;
+  height: 100vh;
+  background-color: #f8f9fb;
 }
 
 /* Sidebar */
 .sidebar {
   width: 250px;
-  background: white;
-  padding: 35px;
-  border-right: 1px solid #ddd;
- 
-  margin: 16px;
-  border-radius: 20px;
-}
-
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.search-bar {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-}
-
-.menu-item {
-  background: none;
-  border: none;
-  padding: 10px;
-  text-align: left;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.menu-item.active {
-  font-weight: bold;
-}
-
-.menu-icon {
-  font-size: 20px;
-}
-
-/* Social Sharing */
-.social-icons {
-  display: flex;
-  gap: 10px;
-}
-
-.social-icon {
-  font-size: 25px;
-  cursor: pointer;
-}
-
-.whatsapp { color: #25D366; }
-.facebook { color: #1877F2; }
-.instagram { color: #E4405F; }
-
-/* YouTube Button */
-.youtube-btn {
-  background: red;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  border: none;
-}
-
-/* Settings Panel */
-.settings-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 300px;
-  background: white;
-  height: 100vh;
+  background: #ffffff;
   padding: 20px;
-  box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #e0e0e0;
 }
 
-.theme-toggle {
-  background: none;
-  border: none;
+.sidebar .logo {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sidebar .menu,
+.sidebar .bottom-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
   cursor: pointer;
-  font-size: 20px;
 }
 
+.sidebar li svg {
+  margin-right: 10px;
+}
+.menu li:hover{
+  background-color: #3cb4f5;
+  border-radius: 16px;
+}
 /* Main Content */
 .main-content {
   flex: 1;
   padding: 20px;
 }
 
-/* Profile Header */
-.profile-header {
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
   display: flex;
   align-items: center;
-  gap: 15px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
-.profile-avatar {
-  font-size: 60px;
+.search-bar input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
 }
 
-/* Profile Details */
-.profile-body {
+.profile-section {
   display: flex;
-  margin-top: 20px;
+  align-items: center;
+}
+
+/* Layout Sections */
+.content-container {
+  display: flex;
   gap: 20px;
 }
 
-.profile-details {
+/* Left Section (Tasks & Calendar) */
+.left-section {
   flex: 2;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
 }
 
-.profile-sidebar {
+/* Right Section (Info Cards) */
+.right-section {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Tasks Section */
+.tasks-section {
   background: white;
   padding: 20px;
+  border-radius: 8px;
+}
+
+.task-card {
+  padding: 15px;
+  margin-top: 10px;
+  background: #f8f9fb;
+}
+
+.see-all-tasks {
+  color: blue;
+  cursor: pointer;
+}
+
+/* Info Cards */
+.info-card {
+  padding: 20px;
+  color: white;
   border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: solid 3px rgb(207, 99, 66);
 }
 
-/* Rewards */
-.rewards span {
-  display: inline-block;
-  padding: 5px 10px;
-  background: #ddd;
-  margin-right: 5px;
-  border-radius: 5px;
+.info-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Social Sharing */
-.social-icons {
+.info-card.blue {
+  background-color: #2486e8 !important;
+}
+
+
+.info-card.green {
+  background-color: #26a69a !important;
+}
+
+.info-card.purple {
+  background-color: #7e57c2 !important;
+}
+
+/* Calendar */
+.calendar-container {
+  margin-top: 20px;
+}
+
+.calendar-header {
+  font-weight: bold;
+}
+
+.calendar {
   display: flex;
   gap: 10px;
 }
 
-.social-icon {
-  font-size: 25px;
-  cursor: pointer;
-}
-
-.whatsapp { color: #25D366; }
-.facebook { color: #1877F2; }
-.instagram { color: #E4405F; }
-
-/* YouTube Button */
-.youtube-btn {
-  background: red;
-  color: white;
-  padding: 10px 15px;
+.calendar-date {
+  padding: 5px 10px;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  border: none;
 }
 
-/* Settings Panel */
-.settings-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 300px;
-  background: white;
-  height: 100vh;
-  padding: 20px;
-  box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.2);
+.selected {
+  background: #1976d2;
+  color: white;
 }
 
-.theme-toggle {
-  background: none;
-  border: none;
+.see-schedule {
+  color: blue;
   cursor: pointer;
-  font-size: 20px;
 }

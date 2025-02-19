@@ -1,46 +1,53 @@
 import React from "react";
-import "./Home.css"; // Import CSS file
+import "./Home.css";
 
 const AboutUs = () => {
   return (
     <div id="about" className="about-container">
-      {/* Left Section */}
+      {/* Left Section: Text Content */}
       <div className="about-text">
-        <p className="highlight-text">How It Started</p>
-        <h1 className="about-title">
-          Our Dream is <br /> Transforming Wellness with NeuroFlex Mat
-        </h1>
+        <h4 className="about-subtitle">How It Started</h4>
+        <h2 className="about-title">
+          Our Dream is <br /> Global Therapy <br /> Transformation
+        </h2>
         <p className="about-description">
-          NeuroFlex Mat USA was founded by visionary experts dedicated to revolutionizing wellness. 
-          Their dream was to create a scientifically backed, accessible solution for mind-body relaxation. 
-          Through innovation and research, they launched NeuroFlex Mat, empowering individuals 
-          to enhance their well-being through advanced technology and holistic healing.
+          Kawruh was founded by Robert Anderson, a passionate lifelong learner,
+          and Maria Sanchez, a visionary educator. Their shared dream was to
+          create a digital haven of knowledge accessible to all. United by
+          their belief in the transformational power of education, they
+          embarked on a journey to build `Kawruh` With relentless dedication,
+          they gathered a team of experts and launched this innovative
+          platform, creating a global community of eager learners, all
+          connected by the desire to explore, learn, and grow.
         </p>
       </div>
 
-      {/* Right Section */}
-      <div className="about-media">
-        <img 
-          src="/assets/images/logo.jpg" 
-          alt="Wellness with NeuroFlex Mat" 
-          className="about-image" 
-        />
-        <div className="stats-grid">
+      {/* Right Section: Image and Stats */}
+      <div className="about-right">
+        <div className="about-image">
+          <img
+            src="assets/images/logo.jpg"
+            alt="Team Collaboration"
+          />
+        </div>
+
+        {/* Stats Cards */}
+        <div className="about-stats">
           <div className="stat-box">
-            <h2>5+</h2>
-            <p>Years of Research</p>
+            <h3>3.5</h3>
+            <p>Years Experience</p>
           </div>
           <div className="stat-box">
-            <h2>30+</h2>
-            <p>Scientific Studies</p>
+            <h3>23</h3>
+            <p>Project Challenge</p>
           </div>
           <div className="stat-box">
-            <h2>1K+</h2>
+            <h3>830+</h3>
             <p>Positive Reviews</p>
           </div>
           <div className="stat-box">
-            <h2>50K+</h2>
-            <p>Happy Users</p>
+            <h3>100K</h3>
+            <p>Trusted Students</p>
           </div>
         </div>
       </div>

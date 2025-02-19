@@ -1,126 +1,115 @@
-import React, { useState } from "react";
-import { 
-  FaUserCircle, FaInstagram, FaFacebook, FaWhatsapp, FaYoutube, 
-  FaCog, FaTimes, FaMoon, FaSun, FaHome, FaChartLine, FaCalendarCheck, 
-  FaDumbbell, FaFileAlt, FaUserMd 
-} from "react-icons/fa";
+import React from "react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  Divider,
+  Grid,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import SettingsIcon from "@mui/icons-material/Settings";
+
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PeopleIcon from "@mui/icons-material/People";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
+import TaskIcon from "@mui/icons-material/Task";
+
 import "./Profile.css";
 
 const Profile = () => {
-  const [settingsOpen, setSettingsOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Toggle settings panel
-  const toggleSettings = () => setSettingsOpen(!settingsOpen);
-
-  // Toggle dark mode
-  const toggleDarkMode = () => setDarkMode(!darkMode);
-
   return (
-    <div className={`profile-container ${darkMode ? "dark-mode" : ""}`}>
-      {/* Sidebar Navigation */}
-      <aside className="sidebar">
-        <h2 className="logo">NeuroFlex</h2>
-        <input type="text" className="search-bar" placeholder="Search" />
-        
-        <nav className="menu">
-          <button className="menu-item active">
-            <FaHome className="menu-icon" /> Home
-          </button>
-          <button className="menu-item">
-            <FaChartLine className="menu-icon" /> Dashboard
-          </button>
-          <button className="menu-item">
-            <FaCalendarCheck className="menu-icon" /> Sessions
-          </button>
-          <button className="menu-item">
-            <FaDumbbell className="menu-icon" /> Exercises
-          </button>
-          <button className="menu-item">
-            <FaFileAlt className="menu-icon" /> Reports
-          </button>
-          <button className="menu-item">
-            <FaUserMd className="menu-icon" /> Physiotherapists
-          </button>
-          <button className="menu-item">
-            <FaCog className="menu-icon" /> Settings
-          </button>
-        </nav>
-      </aside>
+    <Box className="dashboard-container">
+      {/* Sidebar */}
+      <Box className="sidebar">
+        <Typography variant="h6" className="logo">
+          NeuroFlex
+        </Typography>
+        <ul className="menu">
+          <li><DashboardIcon /> Dashboard</li>
+          <li><TaskIcon /> Progress</li>
+          <li><PeopleIcon />LeaderBoard</li>
+          <li><QueryStatsIcon /> Rank</li>
+          <li><TaskIcon /> Reflect</li>
+        </ul>
+        <Divider className="divider" />
+        <ul className="bottom-menu">
+          <li><SettingsIcon /> Settings</li>
+          <li><ExitToAppIcon /> Log Out</li>
+        </ul>
+      </Box>
 
       {/* Main Content */}
-      <main className="main-content">
-        <div className="profile-header">
-          <FaUserCircle className="profile-avatar" />
-          <div className="profile-info">
-            <h1>Aashvi Tekade</h1>
-            <p>NeuroFlex Therapy Participant</p>
+      <Box className="main-content">
+        {/* Header */}
+        <Box className="header">
+          <div className="search-bar">
+            <SearchIcon className="search-icon" />
+            <input type="text" placeholder="Search" />
           </div>
-        </div>
-
-        {/* Profile Details */}
-        <div className="profile-body">
-          {/* Left Section */}
-          <section className="profile-details">
-            <h3>Completed Sessions</h3>
-            <p>You've completed <strong>20</strong> therapy sessions using the NeuroFlex Mat.</p>
-
-            <h3>About NeuroFlex</h3>
-            <p>
-              The NeuroFlex Mat helps improve balance, flexibility, and neuroplasticity.
-              This therapy is designed for individuals recovering from injuries and those 
-              looking to enhance mobility through guided exercises.
-            </p>
-
-            {/* Social Sharing */}
-            <h3>Share Your Progress</h3>
-            <div className="social-icons">
-              <FaWhatsapp className="social-icon whatsapp" />
-              <FaFacebook className="social-icon facebook" />
-              <FaInstagram className="social-icon instagram" />
-            </div>
-
-            {/* YouTube Tutorials */}
-            <h3>Watch Training Videos</h3>
-            <button className="youtube-btn">
-              <FaYoutube className="menu-icon" /> Watch on YouTube
-            </button>
-          </section>
-
-          {/* Right Section */}
-          <aside className="profile-sidebar">
-            <h3>Rewards & Levels</h3>
-            <div className="rewards">
-              <span>🏅 Beginner</span>
-              <span>🥈 Intermediate</span>
-              <span>🏆 Pro</span>
-            </div>
-
-            <h3>Physiotherapist</h3>
-            <p>Dr. Emily Smith</p>
-
-            <h3>Contact</h3>
-            <p>Email: neuroflex@support.com</p>
-          </aside>
-        </div>
-      </main>
-
-      {/* Settings Panel */}
-      {settingsOpen && (
-        <div className="settings-panel">
-          <button className="close-settings" onClick={toggleSettings}>
-            <FaTimes />
-          </button>
-          <h2>Settings</h2>
-          <div className="setting-item">
-            <label>Dark Mode</label>
-            <button className="theme-toggle" onClick={toggleDarkMode}>
-              {darkMode ? <FaSun /> : <FaMoon />}
-            </button>
+          <div className="profile-section">
+            <IconButton><NotificationsIcon /></IconButton>
+            <Avatar alt="User" src="https://via.placeholder.com/40" />
+            <Typography variant="body1">Team Neuroflex</Typography>
           </div>
-        </div>
-      )}
-    </div>
+        </Box>
+
+        <Box className="content-container">
+          {/* Left Content (Tasks & Calendar) */}
+          <Box className="left-section">
+            {/* Account Settings */}
+            <Box className="account-settings">
+              <Button variant="outlined">Account Settings</Button>
+            </Box>
+
+            {/* Tasks Section */}
+            <Box className="tasks-section">
+              <Typography variant="h6">My Tasks</Typography>
+              <Typography variant="body2">2 active tasks</Typography>
+              <Card className="task-card">
+                <Typography><b>Admira</b> • Check patitent 1<span className="due today">Due today</span></Typography>
+                <Typography><b>Admira</b> • Reflection Time <span className="due tomorrow">Tomorrow</span></Typography>
+                <Typography><b>Admira</b> • check progress <span className="due today">Due today</span></Typography>
+              </Card>
+              <Typography className="see-all-tasks">See all tasks</Typography>
+            </Box>
+
+            {/* Calendar Section */}
+            <Box className="calendar-container">
+              <Typography variant="h6">December 2023</Typography>
+              <Box className="calendar">
+                <Typography className="calendar-date selected">Mon 3</Typography>
+                <Typography className="calendar-date">Tue 4</Typography>
+                <Typography className="calendar-date">Wed 5</Typography>
+                <Typography className="calendar-date">Thu 6</Typography>
+                <Typography className="calendar-date">Fri 7</Typography>
+              </Box>
+              <Typography className="see-schedule">See the entire schedule</Typography>
+            </Box>
+          </Box>
+
+          {/* Right Content (Info Cards) */}
+          <Box className="right-section">
+            <Card className="info-card blue">
+              <Typography className="card-title">Reflection Time</Typography>
+              <Typography className="card-subtitle">10 Questions</Typography>
+            </Card>
+            <Card className="info-card green">
+              <Typography className="card-title">Daily Progress</Typography>
+              <Typography className="card-subtitle">82%</Typography>
+            </Card>
+            <Card className="info-card purple">
+              <Typography className="card-title">FAQ</Typography>
+              <Typography className="card-subtitle">Find all the answers</Typography>
+            </Card>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
