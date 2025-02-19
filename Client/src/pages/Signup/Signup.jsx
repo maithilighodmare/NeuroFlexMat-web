@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   const [form, setForm] = useState({
@@ -91,7 +92,7 @@ export default function Signup() {
           </button>
         </form>
         <p style={{ marginTop: "10px", fontSize: "14px" }}>Already have an account? 
-          <a href="/login" style={{ color: "#00796b", fontWeight: "bold", textDecoration: "none" }}> Login Here</a>
+          <Link to="/login" style={{ color: "#00796b", fontWeight: "bold", textDecoration: "none" }}> Login Here</Link>
         </p>
       </div>
     </div>
