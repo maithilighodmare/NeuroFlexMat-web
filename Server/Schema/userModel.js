@@ -4,7 +4,8 @@ const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    age: { type: Number }
+    age: { type: Number },
+    dataArr: { type: [Number], default: [] }
 });
 
 const User = mongoose.model('User', userSchema);
