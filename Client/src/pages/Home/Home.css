@@ -114,48 +114,99 @@ body {
 }
 
 /* AboutUs Section */
-.about-section {
-  text-align: center;
-  padding: 3rem 2rem;
-  min-height: 100vh; /* Full screen height */
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f4e9ec; /* Slightly darker background */
+  padding: 50px;
+  border-radius: 15px;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.about-text, .about-media {
+  flex: 1;
+  padding: 30px;
+  background: rgba(237, 242, 241, 0.788); /* White background for contrast */
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+}
+
+/* Section header */
+.highlight-text {
+  color: #ff7f32;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Title styling */
+.about-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Paragraph styling */
+.about-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Right section (image + stats) */
+.about-media {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: url("/assets/images/Aboutus.jpg") no-repeat center center/cover;
-  position: relative;
 }
 
-.about-section h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: rgb(29, 20, 20); /* Ensure visibility on background */
-  margin-bottom: 2rem;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+/* Image styling */
+.about-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.about-content {
-  background: rgba(90, 90, 90, 0.9); /* Dark gray with slight transparency */
-  color: white;
-  padding: 2rem;
-  border-radius: 50px; /* Oval shape */
-  max-width: 900px;
+/* Stats section */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+/* Stat box styling */
+.stat-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Enhanced visibility */
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .about-content {
-    padding: 1.5rem;
-    border-radius: 30px;
-  }
-
-  .about-section h2 {
-    font-size: 2rem;
-  }
+/* Hover effect */
+.stat-box:hover {
+  transform: translateY(-5px);
 }
 
+/* Stat number */
+.stat-box h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Stat description */
+.stat-box p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #ccb7b7;
+}
 
 /* Abouts us section style ends*/
 
@@ -163,7 +214,7 @@ body {
 .reviews-section {
   text-align: center;
   padding: 3rem 0;
-  background: white;
+  background: #f5fcf7;
 }
 
 .reviews-section h2 {
@@ -260,7 +311,7 @@ body {
   /* Conatact Page */
   .contact-section {
     padding: 4rem 2rem;
-    background: #f9f9f9;
+    background: #f3eaec;
     text-align: center;
   }
   

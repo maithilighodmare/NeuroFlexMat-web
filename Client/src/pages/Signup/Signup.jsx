@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Signup() {
   const [form, setForm] = useState({
-    username: "",
+    name: "",
     email: "",
     role: "",
     age: "",

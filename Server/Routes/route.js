@@ -1,8 +1,13 @@
 const express = require('express');
-let routes = express.Router();
-let { userSignUp, userLogin } = require('../Controllers/userControllers');
+const routes = express.Router();  // Change 'let' to 'const' and ensure consistent naming
 
-routes.get('/signup', userSignUp);
-routes.get('/login', userLogin);
+const { userSignUp, userLogin, getUserProfile, updateUser, deleteUser } = require('../Controllers/userControllers');
+const authMiddleware = require('../middleware/authMiddleware'); // Ensure you have this middleware
 
-module.exports = { routes };
+routes.post('/signup', userSignUp);
+routes.post('/login', userLogin);
+routes.get('/profile', authMiddleware, getUserProfile);
+routes.put('/update', authMiddleware, updateUser);
+routes.delete('/delete', authMiddleware, deleteUser);
+
+module.exports = routes;  // Export routes correctly
