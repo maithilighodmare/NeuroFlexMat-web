@@ -8,9 +8,11 @@ import Progress from "./pages/Progress/Progress";
 import Report from './pages/Report/Report';
 import Doctordashboard from "./pages/DoctorDashboard/Doctordashboard";
 import Rewards from "./pages/Rewards/Rewards";
+import Navbar from "./components/Navbar";
 const App = () => {
   return (
     <Router>
+     
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Signup />} />
@@ -20,6 +22,7 @@ const App = () => {
       <Route path="/report" element={<Report/>}/>
       <Route path="/rewards" element={<Rewards/>} />
       <Route path="/doctordashboard" element={<Doctordashboard />}/>
+      <Route path="/progress" element={<Progress />}/>
       </Routes>
     </Router>
   );
