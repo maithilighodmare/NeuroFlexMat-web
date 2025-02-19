@@ -7,6 +7,7 @@ const authMiddleware = require('../middleware/authMiddleware'); // Ensure you ha
 routes.post('/signup', userSignUp);
 routes.post('/login', userLogin);
 routes.get('/profile', authMiddleware, getUserProfile);
+routes.get("/doctor-dashboard", getDoctorDashboard);
 routes.put('/update', authMiddleware, updateUser);
 routes.delete('/delete', authMiddleware, deleteUser);
 
