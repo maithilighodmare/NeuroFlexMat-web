@@ -8,9 +8,11 @@ import Progress from "./pages/Progress/Progress";
 import Report from './pages/Report/Report';
 import Doctordashboard from "./pages/DoctorDashboard/Doctordashboard";
 import Rewards from "./pages/Rewards/Rewards";
+import Navbar from "./components/Navbar";
 const App = () => {
   return (
     <Router>
+      <Navbar/>
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Signup />} />
