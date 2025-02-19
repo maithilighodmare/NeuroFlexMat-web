@@ -1,12 +1,16 @@
-const mongoose=require('mongoose');
-const url = 'mongodb://localhost:27017/nuroflexmat';
-const dbConnection=async()=>{
+require('dotenv').config(); // Load environment variables
+const mongoose = require('mongoose');
+
+const dbConnection = async () => {
     try {
-        await mongoose.connect(url);
-        console.log("MongoDB connected!");
+        await mongoose.connect(process.env.MONGO_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        console.log("MongoDB connected successfully!");
     } catch (error) {
-        console.log(error.message);
-        
+        console.log("Database connection error:", error.message);
     }
 }
-module.exports=dbConnection;
+
+module.exports = dbConnection;

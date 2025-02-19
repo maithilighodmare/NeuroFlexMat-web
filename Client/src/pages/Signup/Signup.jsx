@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function Signup() {
   const [form, setForm] = useState({
-    username: "",
+    name: "",
     email: "",
     role: "",
     age: "",
