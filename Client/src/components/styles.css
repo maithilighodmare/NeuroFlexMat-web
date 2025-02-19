@@ -1,30 +1,27 @@
 /* Nabar */
 /* Navbar - Full width, fixed to the top */
-.navbar {
-<<<<<<< HEAD
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding: 1rem 8rem;
-    
-    background: #3a285f;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 90%; /* Full viewport width */
-    z-index: 1000;
-   
-=======
+.navbar { display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 1rem 8rem;
+  
+  background: #3a285f;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
+  width: 90%; /* Full viewport width */
+  z-index: 1000;}
+   
+.logo-container{
+  
+  top: 0;
   left: 0;
-  width: 100%;
   height: 70px;
-  background:#FFEDFA;
+ 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 
@@ -42,8 +39,8 @@
 }
 
 .logo {
-  height: 40px;
-  width: 40px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -52,23 +49,16 @@
   font-size: 20px;
   font-weight: bold;
   margin-left: 10px;
-  color: #333;
->>>>>>> 7015c672e31e62b7f3ff25389cbb40a68e20fb47
+  color: white;
 }
 
 /* Navigation Links */
 .nav-links {
-<<<<<<< HEAD
     list-style: none;
     display: flex;
     gap: 50px;
     transition: all 0.3s ease-in-out;
   
-=======
-  display: flex;
-  gap: 20px;
-  list-style: none;
->>>>>>> 7015c672e31e62b7f3ff25389cbb40a68e20fb47
 }
 
 .nav-item a {
@@ -81,7 +71,6 @@
   transition: 0.3s;
 }
 
-<<<<<<< HEAD
 .nav-links li a {
   color: rgb(247, 242, 242);
   text-decoration: none;
@@ -118,12 +107,6 @@
     text-decoration: none;
     color: #333;
     font-weight: bold;
-=======
-.nav-item.active a {
-  color: #ff3366;
-  font-weight: bold;
-  position: relative;
->>>>>>> 7015c672e31e62b7f3ff25389cbb40a68e20fb47
 }
 
 /* Highlight effect on active icon */
