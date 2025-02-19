@@ -5,9 +5,8 @@ import AboutUs from "./AboutUs";
 import Reviews from "./Reviews";
 import Contact from "./Contact";
 import Footer from "../../components/Footer";
-
+ 
 import "./Home.css";
-
 
 const Home = () => {
   return (
@@ -23,7 +22,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-
-
