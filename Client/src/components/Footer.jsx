@@ -68,7 +68,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          Designed and Developed By <span className="developer-name">Uldeck</span>
+          Designed and Developed By <span className="developer-name">Team Neuroflex</span>
         </div>
       </div>
 
