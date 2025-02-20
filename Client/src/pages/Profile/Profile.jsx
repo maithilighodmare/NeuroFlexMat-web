@@ -20,36 +20,49 @@ import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import TaskIcon from "@mui/icons-material/Task";
 
 import "./Profile.css";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   return (
-    <Box className="dashboard-container">
-      {/* Sidebar */}
-      <Box className="sidebar">
-        <Typography variant="h6" className="logo">
-          NeuroFlex
-        </Typography>
-        <ul className="menu">
-          <li><DashboardIcon /> Dashboard</li>
-          <li><TaskIcon /> Progress</li>
-          <li><PeopleIcon />LeaderBoard</li>
-          <li><QueryStatsIcon /> Rank</li>
-          <li><TaskIcon /> Reflect</li>
-        </ul>
-        <Divider className="divider" />
-        <ul className="bottom-menu">
-          <li><SettingsIcon /> Settings</li>
-          <li><ExitToAppIcon /> Log Out</li>
-        </ul>
-      </Box>
+    <div className={`profile-container ${darkMode ? "dark-mode" : ""}`}>
+      {/* Sidebar Navigation */}
+      <aside className="sidebar">
+        <h2 className="logo">NeuroFlex</h2>
+        <input type="text" className="search-bar" placeholder="Search" />
+        
+        <nav className="menu">
+         
+         <Link to='/'> <button className="menu-item active">
+            <FaHome className="menu-icon" /> Home
+          </button></Link>
+          <button className="menu-item">
+            <FaChartLine className="menu-icon" /> Dashboard
+          </button>
+          <button className="menu-item">
+            <FaCalendarCheck className="menu-icon" /> Sessions
+          </button>
+          <button className="menu-item">
+            <FaDumbbell className="menu-icon" /> Exercises
+          </button>
+          <button className="menu-item">
+            <FaFileAlt className="menu-icon" /> Reports
+          </button>
+          <button className="menu-item">
+            <FaUserMd className="menu-icon" /> Physiotherapists
+          </button>
+          <button className="menu-item">
+            <FaCog className="menu-icon" /> Settings
+          </button>
+        </nav>
+      </aside>
 
       {/* Main Content */}
-      <Box className="main-content">
-        {/* Header */}
-        <Box className="header">
-          <div className="search-bar">
-            <SearchIcon className="search-icon" />
-            <input type="text" placeholder="Search" />
+      <main className="main-content">
+        <div className="profile-header">
+          <FaUserCircle className="profile-avatar" />
+          <div className="profile-info">
+            <h1>Aashvi Tekade</h1>
+            <p>NeuroFlex Therapy Participant</p>
           </div>
           <div className="profile-section">
             <IconButton><NotificationsIcon /></IconButton>

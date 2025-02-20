@@ -32,7 +32,7 @@ const BarChart = () => {
       },
       title: {
         display: true,
-        text: "Sales Performance",
+        text: "Training Performance",
         font: {
           size: 18,
         },

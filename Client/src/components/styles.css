@@ -1,277 +1,95 @@
-
-/* Ensure the entire viewport is used */
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
-/* Make the root container a flex column */
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Ensure page content takes full height */
-.page-content {
-  flex: 1;
-}
-/* Top Bar */
-.top-bar {
-  background: #0097A7;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 50px;
-  font-size: 14px;
-  height: 20px;
-}
-
-/* Ensure contact info is in a single line */
-.contact-info {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  gap: 15px; /* Adjust spacing */
-}
-
-/* Style icons properly */
-.icon {
-  margin-right: 5px;
-}
-
-/* Social Icons */
-.social-icons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  
-}
-#icon{
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.561);
-}
-
-.social-icons a {
-  color: white;
-  font-size: 26px;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  color: #ffcc00;
-}
-
-/* Navigation */
+/* General Navbar Styling */
 .navbar {
-  position: sticky;
-  top: 0;
-  left: 0;
- 
-  background: white;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  background: rgba(0, 0, 0, 0.7); /* Dark Glass Effect */
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 8px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #0097A7;
+  color: #ffffff;
 }
 
+/* Navigation Links */
 .nav-links {
-  display: flex;
   list-style: none;
-}
-
-.nav-links li {
-  margin-left: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-}
-
-.nav-links a:hover {
-  color: #0097A7;
-}
-
-
-/* Footer style */
-
-/* Footer Styles */
-.footer {
-  background-color: #1c053e;
-  color: #d1d1d1;
-  padding: 40px 0;
-  position: relative;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
-}
-
-/* Flexbox to Keep Everything in One Line */
-.footer-row {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   gap: 20px;
 }
 
-/* Footer Logo */
-.footer-logo {
-  width: 30%;
+.nav-item {
+  position: relative;
 }
 
-.footer-title {
-  color: #20c997;
-  font-size: 22px;
-  font-weight: bold;
+.nav-item a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #ffffff;
   display: flex;
   align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-.logo-icon {
-  font-size: 26px;
-  margin-right: 8px;
+/* Hover Effect */
+.nav-item a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
-/* Social Icons */
-.social-icons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+/* Active State */
+.nav-item.active a {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-.social-icon {
-  background: #333;
-  padding: 8px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.social-icon i {
-  color: white;
-  font-size: 14px;
-}
-
-.social-icon:hover {
-  background: #20c997;
-}
-
-/* Quick Links */
-.footer-links-container {
-  display: flex;
-  gap: 50px;
-  width: 40%;
-}
-
-.footer-links h3 {
-  color: #fff;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links ul li {
-  margin-bottom: 5px;
-}
-
-.footer-links ul li a {
-  color: #d1d1d1;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-links ul li a:hover {
-  color: #20c997;
-}
-
-/* Map Section */
-.footer-map {
-  width: 30%;
-}
-
-.footer-map h3 {
-  color: #fff;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.footer-map iframe {
-  width: 100%;
-  border-radius: 5px;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-  text-align: center;
-  font-size: 14px;
-  color: #888;
-  margin-top: 20px;
-}
-
-.developer-name {
-  color: #20c997;
-}
-
-/* Scroll to Top Button */
-.scroll-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #20c997;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s;
-}
-
-.scroll-top:hover {
-  background: #17a589;
-}
-
-/* Responsive Design */
-@media (max-width: 900px) {
-  .footer-row {
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-logo, .footer-links-container, .footer-map {
     width: 100%;
+    padding: 15px 10px;
   }
 
-  .social-icons {
-    justify-content: center;
-  }
-
-  .footer-links-container {
+  .nav-links {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .nav-item a {
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
   }
 }
