@@ -48,7 +48,7 @@ const FAQSection = () => {
       {/* Right Side - Image with Play Button */}
       <div className="faq-video">
   <video className="video-placeholder" controls poster="your-thumbnail.jpg">
-    <source src="assets/videos/v1.mp4" type="video/mp4" />
+    <source src="" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
   <div className="play-button" onclick="document.querySelector('.video-placeholder').play()">▶</div>

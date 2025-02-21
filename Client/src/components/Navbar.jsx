@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import "./styles.css";
 
 const Navbar = () => {
+  const [isSticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       {/* Top Bar */}
@@ -20,7 +35,7 @@ const Navbar = () => {
       </div>
 
       {/* Navigation Bar */}
-      <nav className="navbar">
+      <nav className={`navbar ${isSticky ? "sticky" : ""}`}>
         <div className="logo">🩺NeuroFlex</div>
         <ul className="nav-links">
           <li>
@@ -40,7 +55,7 @@ const Navbar = () => {
           </li>
           <li>
             <ScrollLink to="reviews" smooth={true} duration={500} offset={-70}>
-          FAQs
+              FAQs
             </ScrollLink>
           </li>
           <li>
@@ -48,7 +63,6 @@ const Navbar = () => {
               Contact
             </ScrollLink>
           </li>
-          
         </ul>
       </nav>
     </>
