@@ -26,7 +26,7 @@ const AboutUs = () => {
       <div className="about-right">
         <div className="about-image">
           <img
-            src="assets/images/logo.jpg"
+            src="https://media-hosting.imagekit.io//f1d265587b7d458d/logo.png?Expires=1834755043&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=F9yuGPcd3L~MuTvrRAHt~lYz5Zj6qSlhYQ-wNjBJUDyvgOsD4ilk14vpE2fBSroCRVZKHZcLQ4m0~~7kBRqDJsUDjO2Fb4W8WWsRwbG1Z~Y5~lr7IrDqOUfZrmHyBrOXOTJzszGbGI88ipj2RltcUvUNqKiB~O7qQJcL-5hrIIGuPIvtZrIbSvguJak2bRy1LYzMcVZZ44iYr6a6TK35f9pLlxThPym6n8j~CL20F7O-D8M6uabQcmTBpSwOBEtUxnQtcBAh72UyhkKctfZg00VPnw2Pk7-D4ZJCdor6jWEmcqzLpEvgLNTGHIkUqKjqOHMMm45VK3Ef1ugWkcW~lA__"
             alt="Team Collaboration"
           />
         </div>
