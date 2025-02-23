@@ -34,11 +34,16 @@
   padding: 4px;
   border-radius: 50%;
   color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 }
 
 /* Social Icons */
 .social-icons {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 15px;
 }
 
@@ -46,6 +51,9 @@
   color: white;
   font-size: 16px;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-icons a:hover {

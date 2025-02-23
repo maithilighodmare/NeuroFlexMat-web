@@ -7,11 +7,11 @@ const authMiddleware = require('../middleware/authMiddleware'); // Ensure you ha
 routes.post('/signup', userSignUp);
 routes.post('/login', userLogin);
 routes.get('/profile', authMiddleware, getUserProfile);
-routes.get("/doctor-dashboard");
+routes.get("/doctor-dashboard",authMiddleware);
 routes.put('/update', authMiddleware, updateUser);
 routes.delete('/delete', authMiddleware, deleteUser);
 routes.get('/userlist', userList);
-routes.get('/dataarr', getDataArr, authMiddleware);
-routes.post('/addvalue', authMiddleware, addInArr);
+routes.get('/dataarr', getDataArr);
+routes.post('/addvalue', addInArr);
 
 module.exports = routes;  // Export routes correctly

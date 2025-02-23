@@ -21,7 +21,7 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="faq-container">
+    <div id="faq" className="faq-container">
       {/* Left Side - FAQ Section */}
       <div className="faq-content">
         <h3 className="faq-title">Frequently Asked Questions</h3>

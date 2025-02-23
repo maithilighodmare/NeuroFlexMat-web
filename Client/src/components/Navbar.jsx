@@ -54,12 +54,12 @@ const Navbar = () => {
             </ScrollLink>
           </li>
           <li>
-            <ScrollLink to="reviews" smooth={true} duration={500} offset={-70}>
+            <ScrollLink to="faq" smooth={true} duration={500} offset={-70}>
               FAQs
             </ScrollLink>
           </li>
           <li>
-            <ScrollLink to="faq" smooth={true} duration={500} offset={-70}>
+            <ScrollLink to="contact" smooth={true} duration={500} offset={-70}>
               Contact
             </ScrollLink>
           </li>
