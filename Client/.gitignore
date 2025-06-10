@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 Client/public/assets/videos/v1.mp4
+
+# Local Netlify folder
+.netlify
