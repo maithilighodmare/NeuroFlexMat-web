@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Default Light Mode styles (already applied by default) */
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode a,
+body.dark-mode button {
+  color: #f0f0f0;
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+}
+
+body.dark-mode .dashboard-container,
+body.dark-mode .chart-box,
+body.dark-mode .topbar,
+body.dark-mode .settings-popup {
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+}
+
+body.dark-mode .topbar-btn {
+  background-color: #2c2c2c;
+  border-color: #444;
+  color: #f0f0f0;
+}

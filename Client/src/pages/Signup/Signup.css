@@ -78,6 +78,9 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .google-btn,
@@ -107,6 +110,9 @@
 .bottom-link {
   font-size: 13px;
   color: #333;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .bottom-link a {

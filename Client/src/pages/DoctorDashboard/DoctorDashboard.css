@@ -20,6 +20,7 @@ body {
   align-items: center;
   border: 2px solid #b39ddb;
   height: 60px;
+  width: 500px;
 }
 
 .header-box h1 {
@@ -55,9 +56,15 @@ body {
   background-color: white;
   border-radius: 12px;
   margin-top: 20px;
-  padding: 20px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
+
 
 .chart-box h2 {
   font-size: 1.125rem;
@@ -127,4 +134,98 @@ body {
   font-size: 0.875rem;
   color: #374151;
   flex: 1;
+}
+/* Container layout fix for entire chart + pie section */
+.chart-box {
+  background-color: white;
+  border-radius: 12px;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  grid-column: span 2; /* Take full width */
+}
+
+/* Add a new container for line + pie charts if you're adding pie charts later */
+.chart-pie-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* Pie chart box style (if implemented) */
+.pie-box {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid #c4b5fd;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Ensure charts are full width */
+.chart-box h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #374151;
+}
+
+/* Fix tables side by side with same height */
+.tables-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Maintain consistent height */
+.table-box {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid #c4b5fd;
+  height: 300px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table-scroll {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.table-row {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #e5e7eb;
+  gap: 12px;
+  min-width: 500px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.chart-filter {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.clickable-name {
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: underline;
 }

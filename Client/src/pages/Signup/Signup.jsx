@@ -98,7 +98,12 @@ export default function SignUp() {
               required
               onChange={handleChange}
             />
-            <select name="role" required defaultValue="" onChange={handleChange}>
+            <select
+              name="role"
+              required
+              defaultValue=""
+              onChange={handleChange}
+            >
               <option value="" disabled>
                 Select your role
               </option>
@@ -120,12 +125,12 @@ export default function SignUp() {
               onChange={handleChange}
             />
 
-            <label>
+            {/* <label>
               <input type="checkbox" required /> I agree to the{" "}
               <a href="#" className="terms-link">
                 Terms & Conditions
               </a>
-            </label>
+            </label> */}
 
             <button type="submit" className="signup-btn">
               Sign up

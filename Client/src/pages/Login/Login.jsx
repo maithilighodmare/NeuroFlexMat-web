@@ -7,6 +7,8 @@ import axios from "axios";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
+  const [showForgotPopup, setShowForgotPopup] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -16,11 +18,14 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/user/login", form);
+      const response = await axios.post(
+        "http://localhost:4000/user/login",
+        form
+      );
       const { token, user, message } = response.data;
 
       localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user)); // Save user profile
+      localStorage.setItem("user", JSON.stringify(user));
       alert(message);
       navigate("/");
     } catch (error) {
@@ -35,13 +40,12 @@ export default function Login() {
       const googleUser = {
         name: decoded.name,
         email: decoded.email,
-        password: decoded.sub, // Use unique Google ID
+        password: decoded.sub,
         age: 0,
         role: "patient",
         picture: decoded.picture,
       };
 
-      // Try login first
       try {
         await axios.post("http://localhost:4000/user/login", {
           email: googleUser.email,
@@ -52,7 +56,6 @@ export default function Login() {
         alert("Google login successful!");
         navigate("/");
       } catch (loginError) {
-        // If login fails, try signup
         await axios.post("http://localhost:4000/user/signup", googleUser);
         localStorage.setItem("user", JSON.stringify(googleUser));
         alert("Google signup successful!");
@@ -61,6 +64,17 @@ export default function Login() {
     } catch (err) {
       alert("Google Login Failed");
     }
+  };
+
+  const handleForgotSubmit = () => {
+    if (forgotEmail.trim() === "") {
+      alert("Please enter your email.");
+      return;
+    }
+    // Simulate a reset
+    alert(`Password reset link sent to ${forgotEmail}`);
+    setShowForgotPopup(false);
+    setForgotEmail("");
   };
 
   return (
@@ -88,7 +102,14 @@ export default function Login() {
               required
               onChange={handleChange}
             />
-            <a href="#" className="forgot-password">
+            <a
+              href="#"
+              className="forgot-password"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowForgotPopup(true);
+              }}
+            >
               Forgot Password?
             </a>
             <button type="submit" className="login-btn">
@@ -112,6 +133,27 @@ export default function Login() {
       <div className="login-right">
         <img src="https://i.ibb.co/vCjydVyr/lsimg-2.png" alt="login" />
       </div>
+
+      {/* Forgot Password Popup */}
+      {showForgotPopup && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <h3>Forgot Password</h3>
+            <p>Enter your registered email to receive reset link.</p>
+            <input
+              type="email"
+              value={forgotEmail}
+              onChange={(e) => setForgotEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="popup-input"
+            />
+            <div className="popup-buttons">
+              <button onClick={handleForgotSubmit}>Submit</button>
+              <button onClick={() => setShowForgotPopup(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

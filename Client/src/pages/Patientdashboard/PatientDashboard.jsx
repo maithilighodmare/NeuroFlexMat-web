@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
-import { Link } from "react-router-dom";
-import { ref, get } from "firebase/database"; // ✅ Only ref and get
-import { database } from "../../firebase"; // ✅ Import initialized instance
+import { Link, useLocation } from "react-router-dom";
+import { ref, get } from "firebase/database";
+import { database } from "../../firebase";
 import TopBar from "../../components/Topbar";
 import "./PatientDashboard.css";
 
@@ -26,51 +26,54 @@ Chartjs.register(
 );
 
 const PatientDashboard = () => {
+  const location = useLocation();
+  const patient = location.state?.user;
+
   const [touchData, setTouchData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [average, setAverage] = useState(0);
 
-  const fetchTouchData = async () => {
-    setLoading(true);
-    try {
-      const snapshot = await get(ref(database, "/")); // ✅ Use imported database
-      const data = snapshot.val();
-
-      if (!data) {
-        setTouchData([]);
-        setLoading(false);
-        return;
-      }
-
-      const filtered = Object.entries(data)
-        .filter(([key]) => key.startsWith("touchTime"))
-        .sort(([a], [b]) => {
-          const aNum = parseInt(a.replace("touchTime", ""));
-          const bNum = parseInt(b.replace("touchTime", ""));
-          return aNum - bNum;
-        });
-
-      const formatted = filtered.map(([key, value]) => ({
-        name: key,
-        time: parseFloat((value / 1000).toFixed(2)),
-      }));
-
-      const avg =
-        formatted.reduce((acc, item) => acc + item.time, 0) /
-        (formatted.length || 1);
-
-      setTouchData(formatted);
-      const clampedAvg = Math.min(6, Math.max(1, avg));
-      setAverage(parseFloat(clampedAvg.toFixed(2)));
-    } catch (err) {
-      setError("Failed to fetch data from Firebase.");
-      console.error(err);
-    }
-    setLoading(false);
-  };
-
   useEffect(() => {
+    const fetchTouchData = async () => {
+      setLoading(true);
+      try {
+        const snapshot = await get(ref(database, "/"));
+        const data = snapshot.val();
+
+        if (!data) {
+          setTouchData([]);
+          setLoading(false);
+          return;
+        }
+
+        const filtered = Object.entries(data)
+          .filter(([key]) => key.startsWith("touchTime"))
+          .sort(
+            ([a], [b]) =>
+              parseInt(a.replace("touchTime", "")) -
+              parseInt(b.replace("touchTime", ""))
+          );
+
+        const formatted = filtered.map(([key, value]) => ({
+          name: key,
+          time: parseFloat((value / 1000).toFixed(2)),
+        }));
+
+        const avg =
+          formatted.reduce((acc, item) => acc + item.time, 0) /
+          (formatted.length || 1);
+        const clampedAvg = Math.min(6, Math.max(1, avg));
+
+        setTouchData(formatted);
+        setAverage(parseFloat(clampedAvg.toFixed(2)));
+      } catch (err) {
+        setError("Failed to fetch data from Firebase.");
+        console.error(err);
+      }
+      setLoading(false);
+    };
+
     fetchTouchData();
   }, []);
 
@@ -111,8 +114,37 @@ const PatientDashboard = () => {
   return (
     <div className="patient-dashboard">
       <TopBar />
+
       <div className="dashboard-container">
         <h2 className="dashboard-heading">Touch Time Dashboard</h2>
+
+        {patient ? (
+          <div className="patient-info">
+            <h3>Patient Information</h3>
+            <ul>
+              <li>
+                <strong>Name:</strong> {patient.name}
+              </li>
+              <li>
+                <strong>Gender:</strong> {patient.gender}
+              </li>
+              <li>
+                <strong>Weight:</strong> {patient.weight}
+              </li>
+              <li>
+                <strong>Age:</strong> {patient.age}
+              </li>
+              <li>
+                <strong>Condition:</strong> {patient.condition}
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <p style={{ color: "#888" }}>
+            (No patient selected — navigate from doctor dashboard)
+          </p>
+        )}
+
         <div className="avg-time">
           <div className="circle-progress">
             <div className="circle">
@@ -146,7 +178,6 @@ const PatientDashboard = () => {
         </Link>
       </div>
     </div>
-  
   );
 };
 
