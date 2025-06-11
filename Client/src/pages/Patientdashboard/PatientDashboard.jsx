@@ -35,9 +35,12 @@ const PatientDashboard = () => {
   };
 
   return (
+    <div className="pd">
+        <TopBar />
+   
     <div className="patient-dashboard" id="patient-dashboard">
       {/* Navigation Top Bar */}
-      <TopBar />
+     
 
       {/* Heading */}
       <h2 className="heading">Progress by Months</h2>
@@ -54,6 +57,7 @@ const PatientDashboard = () => {
         <button className="home-btn">Go to Home</button>
       </Link>
     </div>
+  </div>
   );
 };
 

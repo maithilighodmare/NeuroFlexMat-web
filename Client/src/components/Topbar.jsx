@@ -35,10 +35,21 @@ const TopBar = () => {
           <FaComments className="icon" />
           <span>Support</span>
         </button>
-        <button className="topbar-btn" onClick={() => alert("Logged out!")}>
+        <button
+          className="topbar-btn"
+          onClick={() => {
+            const confirmLogout = window.confirm(
+              "Are you sure you want to logout?"
+            );
+            if (confirmLogout) {
+              window.location.href = "/";
+            }
+          }}
+        >
           <FaSignOutAlt className="icon" />
           <span>Logout</span>
         </button>
+
         <button className="topbar-btn">
           <FaSun className="icon" />
           <span>Light Mode</span>
