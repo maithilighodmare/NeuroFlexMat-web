@@ -1,9 +1,10 @@
 require('dotenv').config(); // Load environment variables
 const mongoose = require('mongoose');
+const url="mongodb://localhost:27017/neuroflex";
 
 const dbConnection = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URL, {
+        await mongoose.connect(url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

@@ -3,26 +3,30 @@ import { FaCog, FaSignOutAlt, FaComments, FaSun } from "react-icons/fa";
 import "./TopBar.css";
 
 const TopBar = () => {
-  const user = {
-    name: "Jakob Workman",
-    age: 20,
-  };
+  // Safely get user data from localStorage
+  let user = { email: "user@example.com", name: "User" };
+  try {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser && storedUser !== "undefined") {
+      user = JSON.parse(storedUser);
+    }
+  } catch (e) {
+    console.warn("Failed to parse user from localStorage:", e);
+  }
 
-  const getInitials = (name) => {
-    return name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase();
+  const getInitials = (value) => {
+    return value?.split("@")[0]?.slice(0, 2)?.toUpperCase() || "US";
   };
 
   return (
     <div className="topbar">
       <div className="topbar-left">
-        <div className="initials-circle">{getInitials(user.name)}</div>
+        <div className="initials-circle">
+          {getInitials(user.email || user.name)}
+        </div>
         <div className="user-info">
-          <div className="username">{user.name}</div>
-          <div className="user-role">{user.age} years old</div>
+          <div className="username">{user.email || user.name}</div>
+          <div className="user-role">User</div>
         </div>
       </div>
 
