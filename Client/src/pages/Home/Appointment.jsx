@@ -6,11 +6,10 @@ const Appointment = () => {
     <section className="appointment">
  <div className="appointment-container">
       <div className="appointment-box">
-        <h3 className="appointment-title">Appointment</h3>
-        <h2 className="appointment-heading">Get Appointment Now</h2>
+        <h3 className="appointment-title">Contact</h3>
+        <h2 className="appointment-heading">Get Virtual Appointment Now</h2>
         <p className="appointment-description">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dinonumy
-          eirmod tempor invidunt ut labore et dolore magn.
+          Book a virtual consultation to experience the benefits of the Neuroflex Mat and take your first step toward better neurological health.
         </p>
         <form className="appointment-form">
           <div className="form-row">

@@ -36,7 +36,7 @@
   color: black;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 /* Social Icons */
@@ -62,28 +62,40 @@
 
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
   background-color: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
+ padding: 5px;
 }
 
+/* Container to split left and right */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo on left */
 .logo {
   font-size: 24px;
   font-weight: bold;
   color: #0097a7;
+  flex-shrink: 0;
+  margin-top: -18px;
 }
 
+/* Nav links on right */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 25px;
+  margin-left: auto;
 }
 
 .nav-links li {
@@ -125,7 +137,7 @@
     gap: 5px;
   }
 
-  .navbar {
+  .navbar-container {
     flex-direction: column;
     text-align: center;
     padding: 10px;
@@ -135,9 +147,9 @@
     flex-direction: column;
     gap: 15px;
     padding-top: 10px;
+    margin-left: 0;
   }
 }
-
 
 /* Footer Container */
 .footer {
@@ -271,11 +283,13 @@
     align-items: center;
     text-align: center;
   }
+
   .footer-middle {
     flex-direction: column;
     gap: 30px;
     margin-top: 20px;
   }
+
   .footer-location {
     margin-top: 20px;
   }

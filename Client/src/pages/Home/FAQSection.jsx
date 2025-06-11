@@ -6,13 +6,17 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "What is an academic medical center?",
+      question: "1. How does the NeuroFlex Mat help with balance and posture?",
       answer:
-        "Lorem ipsum dolor sit amet, consetet Lorem ipsum dolor sit amet, consetet sadipscing elitr, sed dinonumy eirmod tempor invidunt. sadipscing elitr, sed dinonumy eirmod tempor invidunt. Lorem ipsum dolor sit amet, consetet Lorem ipsum dolor.",
+        "Answer : The NeuroFlex Mat stimulates sensory receptors in the feet to activate core and stabilizing muscles, helping improve balance, posture, and coordination over time.",
     },
     {
-      question: "What is an academic medical center?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "2. Is the NeuroFlex Mat suitable for all age groups?",
+      answer: "Answer:Yes, the NeuroFlex Mat is designed to be safe and effective for users of all ages, from children developing motor skills to seniors working on mobility and stability.",
+    },
+    {
+      question: "How often should I use the NeuroFlex Mat to see results?",
+      answer: "Answer:For best results, use the mat for 10–15 minutes a day, 3–5 times a week. Regular usage can lead to noticeable improvements in balance, focus, and physical therapy outcomes",
     },
   ];
 
@@ -48,10 +52,10 @@ const FAQSection = () => {
       {/* Right Side - Image with Play Button */}
       <div className="faq-video">
   <video className="video-placeholder" controls poster="your-thumbnail.jpg">
-    <source src="" type="video/mp4" />
+    <source src="https://streamable.com/icuczq" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
-  <div className="play-button" onclick="document.querySelector('.video-placeholder').play()">▶</div>
+  <div className="play-button" onClick="document.querySelector('.video-placeholder').play()">▶</div>
 </div>
 
     </div>

@@ -9,8 +9,7 @@ const Health = () => {
         <h4 className="section-subtitle">What We Do</h4>
         <h2 className="section-title">What We Provide for Your Health</h2>
         <p className="section-description">
-          Lorem ipsum dolor sit amet, consectetur sadipscing elitr, sed dinonumy eirmod tempor 
-          invidunt ut labore et dolore magn.
+          Neuroflex Mat offers smart neurotherapy to relieve pain, boost circulation, and support recovery—all from home.
         </p>
         <div className="heartbeat-wave">
           {/* <img src="https://source.unsplash.com/1600x400/?heartbeat" alt="Heartbeat Wave" /> */}
@@ -18,11 +17,11 @@ const Health = () => {
         <div className="services">
           <div className="service-item">
             <img src="https://img.icons8.com/ios/100/00bcd4/doctor-male.png" alt="Specialist Doctors" />
-            <p>Specialist Doctors</p>
+            <p>Neurotherapy Experts</p>
           </div>
           <div className="service-item">
             <img src="https://img.icons8.com/ios/100/00bcd4/meeting.png" alt="Frequent Visits" />
-            <p>Frequent Visits</p>
+            <p>Smart Pain Relief</p>
           </div>
           <div className="service-item">
             <img src="https://img.icons8.com/ios/100/00bcd4/artificial-intelligence.png" alt="Cordial Administration" />
@@ -30,7 +29,7 @@ const Health = () => {
           </div>
           <div className="service-item">
             <img src="https://img.icons8.com/ios/100/00bcd4/pharmacy-shop.png" alt="Specialized Pharmacy" />
-            <p>Specialized Pharmacy</p>
+            <p>Home Recovery Support</p>
           </div>
         </div>
         <div className="scroll-up">

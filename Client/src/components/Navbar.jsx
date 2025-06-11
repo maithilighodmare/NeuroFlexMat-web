@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaPhoneAlt,
+  FaEnvelope,
+} from "react-icons/fa";
 import "./styles.css";
 
 const Navbar = () => {
@@ -8,11 +14,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
+      setSticky(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -34,37 +36,20 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Navigation Bar */}
-      <nav className={`navbar ${isSticky ? "sticky" : ""}`}>
-        <div className="logo">🩺NeuroFlex</div>
-        <ul className="nav-links">
-          <li>
-            <ScrollLink to="hero" smooth={true} duration={500} offset={-70}>
-              Home
-            </ScrollLink>
-          </li>
-          <li>
-            <ScrollLink to="about" smooth={true} duration={500} offset={-70}>
-              About
-            </ScrollLink>
-          </li>
-          <li>
-            <ScrollLink to="health" smooth={true} duration={500} offset={-70}>
-              Reviews
-            </ScrollLink>
-          </li>
-          <li>
-            <ScrollLink to="faq" smooth={true} duration={500} offset={-70}>
-              FAQs
-            </ScrollLink>
-          </li>
-          <li>
-            <ScrollLink to="contact" smooth={true} duration={500} offset={-70}>
-              Contact
-            </ScrollLink>
-          </li>
-        </ul>
-      </nav>
+      {/* Main Navigation Bar */}
+     <nav className={`navbar ${isSticky ? "sticky" : ""}`}>
+  <div className="navbar-container">
+    <div className="logo">🩺NeuroFlex</div>
+    <ul className="nav-links">
+      <li><ScrollLink to="hero" smooth={true} duration={500} offset={-70}>Home</ScrollLink></li>
+      <li><ScrollLink to="about" smooth={true} duration={500} offset={-70}>About</ScrollLink></li>
+      <li><ScrollLink to="reviews" smooth={true} duration={500} offset={-70}>Reviews</ScrollLink></li>
+      <li><ScrollLink to="faq" smooth={true} duration={500} offset={-70}>FAQs</ScrollLink></li>
+      <li><ScrollLink to="appointment" smooth={true} duration={500} offset={-70}>Contact</ScrollLink></li>
+    </ul>
+  </div>
+</nav>
+
     </>
   );
 };

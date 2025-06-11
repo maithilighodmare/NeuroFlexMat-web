@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import "./DoctorDashboard.css";
 
 const DoctorDashboard = () => {
   const patients = [
@@ -43,21 +44,19 @@ const DoctorDashboard = () => {
   ];
 
   return (
-    <div className="bg-blue-100 min-h-screen p-6">
+    <div className="dashboard-container">
       {/* Header */}
-      <div className="bg-purple-700 text-white p-5 rounded-lg flex justify-between items-center shadow-md">
-        <h1 className="text-2xl font-bold">Hello Dr. Jackson Santos</h1>
-        <div className="flex items-center space-x-4">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md flex items-center">
-            📅 This Year
-          </button>
-          <img src="https://placehold.co/40" alt="medical-icon" className="w-10 h-10" />
+      <div className="header-box">
+        <h1>Hello Dr. Jackson Santos</h1>
+        <div className="header-controls">
+          <button className="button-year">📅 This Year</button>
+          <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="icon" />
         </div>
       </div>
 
-      {/* Chart Section */}
-      <div className="bg-white p-6 rounded-lg mt-6 shadow-md">
-        <h2 className="text-lg font-semibold text-gray-700 mb-4">Patient Activity</h2>
+      {/* Chart */}
+      <div className="chart-box">
+        <h2>Patient Activity</h2>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={lineChartData}>
             <CartesianGrid strokeDasharray="3 3" />
@@ -71,43 +70,43 @@ const DoctorDashboard = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* Patients Section */}
-      <div className="grid grid-cols-2 gap-6 mt-6">
+      {/* Tables */}
+      <div className="tables-section">
         {/* All Patients */}
-        <div className="bg-white p-6 rounded-lg shadow-md h-64 border-2 border-purple-300">
-          <div className="flex justify-between items-center mb-2">
-            <h2 className="text-lg font-semibold text-gray-700">All Patients</h2>
-            <span className="text-blue-500 cursor-pointer text-sm">see all</span>
+        <div className="table-box">
+          <div className="table-header">
+            <h3>All Patients</h3>
+            <span>see all</span>
           </div>
-          <div className="mt-2 overflow-y-scroll h-40 space-y-3 scrollbar-thin scrollbar-thumb-gray-400">
-            {patients.map((p, index) => (
-              <div key={index} className="flex justify-between items-center border-b py-2 px-2">
-                <img src="https://placehold.co/30" alt="profile-pic" className="w-8 h-8 rounded-full" />
-                <span className="w-1/4 text-gray-700">{p.name}</span>
-                <span className="w-1/6 text-gray-500">{p.gender}</span>
-                <span className="w-1/6 text-gray-500">{p.weight}</span>
-                <span className="w-1/6 text-gray-500">{p.age} yrs</span>
-                <span className="w-1/4 text-gray-700 font-semibold">{p.condition}</span>
+          <div className="table-scroll">
+            {patients.map((p, i) => (
+              <div key={i} className="table-row">
+                <img src="https://placehold.co/30" alt="pfp" />
+                <span>{p.name}</span>
+                <span>{p.gender}</span>
+                <span>{p.weight}</span>
+                <span>{p.age}</span>
+                <span>{p.condition}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Active Users */}
-        <div className="bg-white p-6 rounded-lg shadow-md h-64 border-2 border-purple-300">
-          <div className="flex justify-between items-center mb-2">
-            <h2 className="text-lg font-semibold text-gray-700">Active Users</h2>
-            <span className="text-blue-500 cursor-pointer text-sm">see all</span>
+        <div className="table-box">
+          <div className="table-header">
+            <h3>Active Users</h3>
+            <span>see all</span>
           </div>
-          <div className="mt-2 overflow-y-scroll h-40 space-y-3 scrollbar-thin scrollbar-thumb-gray-400">
-            {activeUsers.map((p, index) => (
-              <div key={index} className="flex justify-between items-center border-b py-2 px-2">
-                <img src="https://placehold.co/30" alt="profile-pic" className="w-8 h-8 rounded-full" />
-                <span className="w-1/4 text-gray-700">{p.name}</span>
-                <span className="w-1/6 text-gray-500">{p.gender}</span>
-                <span className="w-1/6 text-gray-500">{p.weight}</span>
-                <span className="w-1/6 text-gray-500">{p.age} yrs</span>
-                <span className="w-1/4 text-gray-700 font-semibold">{p.condition}</span>
+          <div className="table-scroll">
+            {activeUsers.map((p, i) => (
+              <div key={i} className="table-row">
+                <img src="https://placehold.co/30" alt="pfp" />
+                <span>{p.name}</span>
+                <span>{p.gender}</span>
+                <span>{p.weight}</span>
+                <span>{p.age}</span>
+                <span>{p.condition}</span>
               </div>
             ))}
           </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import "./Progress.css";
+import "../../components/Topbar";
 import { Link } from "react-router-dom";
 import {
   Chart as Chartjs,
@@ -12,6 +13,7 @@ import {
   Legend,
 } from "chart.js";
 import { BarData } from "./LineCharData";
+import TopBar from "../../components/Topbar";
 
 Chartjs.register(
   CategoryScale,
@@ -45,6 +47,8 @@ const BarChart = () => {
       className="flex flex-col items-center justify-center min-h-screen p-6"
       id="progress-bar"
     >
+        {/* Top Bar */}
+     <TopBar/>
       {/* Centered Title */}
       <h2
         className="text-white text-xl font-bold mb-4 text-center m-10"

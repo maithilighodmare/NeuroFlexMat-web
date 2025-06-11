@@ -8,33 +8,31 @@ const AboutUs = () => {
       <div className="about-text">
         <h4 className="about-subtitle">How It Started</h4>
         <h2 className="about-title">
-          Our Dream is <br /> Global Therapy <br /> Transformation
+          Our Dream is Global Therapy <br /> Transformation
         </h2>
         <p className="about-description">
-          Kawruh was founded by Robert Anderson, a passionate lifelong learner,
-          and Maria Sanchez, a visionary educator. Their shared dream was to
-          create a digital haven of knowledge accessible to all. United by
-          their belief in the transformational power of education, they
-          embarked on a journey to build `Kawruh` With relentless dedication,
-          they gathered a team of experts and launched this innovative
-          platform, creating a global community of eager learners, all
-          connected by the desire to explore, learn, and grow.
-        </p>
+          NeuroFlexMat is an innovative project conceptualized under the guidance
+           of Milind Kahile Sir and passionately developed by a team of dedicated 
+           YCCE students. Born from a shared ambition to transform physiotherapy using 
+           smart technology, the project combines neuroscience with intelligent feedback
+            to aid in faster, more effective recovery. The goal was to create a 
+            user-friendly mat that supports patients in regaining mobility, 
+            monitoring progress, and improving neuromuscular control. With 
+            continuous effort and technical creativity, the students brought
+             NeuroFlexMat to life—paving the way for accessible, tech-driven
+              rehabilitation that empowers users and healthcare professionals alike.</p>
       </div>
 
       {/* Right Section: Image and Stats */}
       <div className="about-right">
         <div className="about-image">
-          <img
-            src="https://media-hosting.imagekit.io//f1d265587b7d458d/logo.png?Expires=1834755043&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=F9yuGPcd3L~MuTvrRAHt~lYz5Zj6qSlhYQ-wNjBJUDyvgOsD4ilk14vpE2fBSroCRVZKHZcLQ4m0~~7kBRqDJsUDjO2Fb4W8WWsRwbG1Z~Y5~lr7IrDqOUfZrmHyBrOXOTJzszGbGI88ipj2RltcUvUNqKiB~O7qQJcL-5hrIIGuPIvtZrIbSvguJak2bRy1LYzMcVZZ44iYr6a6TK35f9pLlxThPym6n8j~CL20F7O-D8M6uabQcmTBpSwOBEtUxnQtcBAh72UyhkKctfZg00VPnw2Pk7-D4ZJCdor6jWEmcqzLpEvgLNTGHIkUqKjqOHMMm45VK3Ef1ugWkcW~lA__"
-            alt="Team Collaboration"
-          />
+          
         </div>
 
         {/* Stats Cards */}
         <div className="about-stats">
           <div className="stat-box">
-            <h3>3.5</h3>
+            <h3>0.6</h3>
             <p>Years Experience</p>
           </div>
           <div className="stat-box">
@@ -42,12 +40,12 @@ const AboutUs = () => {
             <p>Project Challenge</p>
           </div>
           <div className="stat-box">
-            <h3>830+</h3>
+            <h3>10+</h3>
             <p>Positive Reviews</p>
           </div>
           <div className="stat-box">
-            <h3>100K</h3>
-            <p>Trusted Students</p>
+            <h3>1K</h3>
+            <p>Trusted Users</p>
           </div>
         </div>
       </div>

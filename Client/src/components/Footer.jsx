@@ -29,9 +29,7 @@ const Footer = () => {
         <div className="footer-left">
           <div className="footer-logo">🔵NeuroFlex</div>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore dolore magna aliquyam erat
-            diam voluptua.
+           NeuroFlex Mat is designed to enhance balance, posture, and overall well-being through intelligent physiotherapy technology. Trusted by experts and loved by users, it brings innovation to everyday health and rehabilitation.
           </p>
           <div className="footer-social">
             <a href="#"><FaFacebookF /></a>
