@@ -5,6 +5,7 @@ import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import PatientDashboard from "./pages/Patientdashboard/PatientDashboard"
 import Doctordashboard from "./pages/DoctorDashboard/Doctordashboard";
+import UserProfile from "./pages/Profile/UserProfile";
 
 import Error404 from "./components/Error404";
 
@@ -18,6 +19,7 @@ const App = () => {
       <Route path="/login" element={<Login/>} />
       <Route path="/doctordashboard" element={<Doctordashboard />}/>
       <Route path="/patientdashboard" element={<PatientDashboard />} />
+      <Route path="/profile" element={<UserProfile />} />
 
      
      

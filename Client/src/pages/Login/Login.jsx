@@ -1,40 +1,78 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
-import { auth, provider, signInWithPopup } from "../../firebase";
-import { FaGoogle, FaFacebookF } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login:", form);
+    try {
+      const response = await axios.post("http://localhost:4000/user/login", form);
+      const { token, user, message } = response.data;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user)); // Save user profile
+      alert(message);
+      navigate("/");
+    } catch (error) {
+      alert(error.response?.data?.message || "Login failed");
+    }
   };
 
-  const handleGoogleLogin = async () => {
+  const handleGoogleLogin = async (credentialResponse) => {
     try {
-      const result = await signInWithPopup(auth, provider);
-      console.log("Firebase Google Login Success:", result.user);
-    } catch (error) {
-      console.error("Firebase Google Login Error:", error);
+      const decoded = jwtDecode(credentialResponse.credential);
+
+      const googleUser = {
+        name: decoded.name,
+        email: decoded.email,
+        password: decoded.sub, // Use unique Google ID
+        age: 0,
+        role: "patient",
+        picture: decoded.picture,
+      };
+
+      // Try login first
+      try {
+        await axios.post("http://localhost:4000/user/login", {
+          email: googleUser.email,
+          password: googleUser.password,
+        });
+
+        localStorage.setItem("user", JSON.stringify(googleUser));
+        alert("Google login successful!");
+        navigate("/");
+      } catch (loginError) {
+        // If login fails, try signup
+        await axios.post("http://localhost:4000/user/signup", googleUser);
+        localStorage.setItem("user", JSON.stringify(googleUser));
+        alert("Google signup successful!");
+        navigate("/");
+      }
+    } catch (err) {
+      alert("Google Login Failed");
     }
   };
 
   return (
     <div className="login-container">
-      {/* Left Side */}
       <div className="login-left">
-        <div className="logo">🩺NeuroFlex</div>
+        <Link to="/">
+          <div className="logo cursor-pointer">🩺NeuroFlex</div>
+        </Link>
         <div className="login-card">
           <h2>Welcome Back!</h2>
           <p>Login to access your dashboard.</p>
+
           <form onSubmit={handleSubmit}>
             <input
               type="email"
@@ -58,20 +96,11 @@ export default function Login() {
             </button>
           </form>
 
-          <div className="auth-socials">
-            {/* Google OAuth Button */}
-            <div style={{ marginTop: "15px" }}>
-              <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  console.log("Google OAuth Success:", credentialResponse);
-                  const decoded = jwtDecode(credentialResponse.credential);
-                  console.log("Decoded Google Token:", decoded);
-                }}
-                onError={() => {
-                  console.log("Google OAuth Login Failed");
-                }}
-              />
-            </div>
+          <div className="auth-socials" style={{ marginTop: "15px" }}>
+            <GoogleLogin
+              onSuccess={handleGoogleLogin}
+              onError={() => alert("Google OAuth Login Failed")}
+            />
           </div>
 
           <p className="bottom-link">
@@ -80,15 +109,8 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Right Side - Image */}
       <div className="login-right">
-        <a href="https://ibb.co/ymQvkdv">
-          <img
-            src="https://i.ibb.co/vCjydVyr/lsimg-2.png"
-            alt="lsimg-2"
-            border="0"
-          />
-        </a>
+        <img src="https://i.ibb.co/vCjydVyr/lsimg-2.png" alt="login" />
       </div>
     </div>
   );

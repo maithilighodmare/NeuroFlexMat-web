@@ -1,0 +1,119 @@
+.profile-page {
+  padding: 40px 20px;
+  background-color: #f7f9fc;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+.profile-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #222;
+}
+
+.profile-tagline {
+  color: #555;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+/* Profile Card */
+.profile-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 30px;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* Left section */
+.profile-left {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: center;
+  border-right: 1px solid #eee;
+  padding-right: 30px;
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.user-role {
+  font-weight: 500;
+  color: #4a90e2;
+  margin-bottom: 5px;
+}
+
+.user-email {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Right section */
+.profile-right {
+  flex: 2;
+  min-width: 300px;
+}
+
+.info-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.info-group label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #444;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.info-group input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  font-size: 15px;
+  color: #333;
+}
+
+.save-btn {
+  margin-top: 20px;
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #3a78c2;
+}
+
+/* Centered message */
+.user-profile-center {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #888;
+}

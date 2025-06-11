@@ -1,17 +1,19 @@
 // src/firebase.js
-import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { initializeApp, getApps } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  appId: "YOUR_APP_ID",
-  // ... other config fields
+  apiKey: "AIza...", // your actual config
+  authDomain: "neuroflextmat.firebaseapp.com",
+  databaseURL: "https://neuroflextmat-default-rtdb.firebaseio.com",
+  projectId: "neuroflextmat",
+  storageBucket: "neuroflextmat.appspot.com",
+  messagingSenderId: "827882921743",
+  appId: "1:827882921743:web:..."
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
-export { auth, provider, signInWithPopup };
+const database = getDatabase(app);
+
+export { database };
