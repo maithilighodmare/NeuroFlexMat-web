@@ -1,13 +1,16 @@
 .topbar {
   width: 100%;
-  background-color: #1a202c; /* Dark gray */
+  background-color: rgba(0, 173, 193, 0.981); /* Dark gray */
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
+  height: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  position: fixed;
+  z-index: 1000;
 }
 
 .topbar-left {
@@ -20,13 +23,13 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #5a67d8; /* Indigo */
+  background-color: #ffffff; 
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   font-size: 14px;
-  color: white;
+  color: rgb(3, 3, 3);
 }
 
 .user-info {
@@ -42,12 +45,13 @@
 
 .user-role {
   font-size: 11px;
-  color: #cbd5e0; /* Light gray */
+  color: #f2f5f8; /* Light gray */
 }
 
 .topbar-right {
   display: flex;
   gap: 20px;
+  padding: 10px;
 }
 
 .topbar-btn {
@@ -63,7 +67,7 @@
 }
 
 .topbar-btn:hover {
-  color: #38b2ac; /* Teal highlight */
+  color: #104b48; /* Teal highlight */
 }
 
 .icon {

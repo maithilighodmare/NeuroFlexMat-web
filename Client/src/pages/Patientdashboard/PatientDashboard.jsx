@@ -25,6 +25,37 @@ Chartjs.register(
   Legend
 );
 
+const groupDataBy = (data, period) => {
+  const grouped = {};
+  const dateFormatter = new Intl.DateTimeFormat("en-US", {
+    day: period === "daily" ? "2-digit" : undefined,
+    month: period !== "daily" ? "short" : "2-digit",
+    year: "numeric",
+  });
+
+  data.forEach((item) => {
+    const date = new Date(item.timestamp);
+    let key =
+      period === "daily"
+        ? date.toISOString().split("T")[0]
+        : period === "weekly"
+        ? `${date.getFullYear()}-W${Math.ceil(
+            (date.getDate() - date.getDay() + 1) / 7
+          )}`
+        : `${date.getFullYear()}-${date.getMonth() + 1}`;
+
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(item.time);
+  });
+
+  return Object.entries(grouped).map(([key, values]) => ({
+    name: key,
+    time: parseFloat(
+      (values.reduce((acc, val) => acc + val, 0) / values.length).toFixed(2)
+    ),
+  }));
+};
+
 const PatientDashboard = () => {
   const location = useLocation();
   const patient = location.state?.user;
@@ -33,6 +64,7 @@ const PatientDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [average, setAverage] = useState(0);
+  const [filter, setFilter] = useState("daily");
 
   useEffect(() => {
     const fetchTouchData = async () => {
@@ -53,21 +85,21 @@ const PatientDashboard = () => {
             ([a], [b]) =>
               parseInt(a.replace("touchTime", "")) -
               parseInt(b.replace("touchTime", ""))
-          );
-
-        const formatted = filtered
+          )
           .map(([key, value]) => ({
             name: key,
             time: parseFloat((value / 1000).toFixed(2)),
-          }))
-          .slice(-15); // Get the last 15 entries
+            timestamp: Date.now() - Math.random() * 1000000000, // Simulated timestamp
+          }));
+
+        const groupedData = groupDataBy(filtered, filter);
 
         const avg =
-          formatted.reduce((acc, item) => acc + item.time, 0) /
-          (formatted.length || 1);
+          groupedData.reduce((acc, item) => acc + item.time, 0) /
+          (groupedData.length || 1);
         const clampedAvg = Math.min(6, Math.max(1, avg));
 
-        setTouchData(formatted);
+        setTouchData(groupedData);
         setAverage(parseFloat(clampedAvg.toFixed(2)));
       } catch (err) {
         setError("Failed to fetch data from Firebase.");
@@ -77,10 +109,10 @@ const PatientDashboard = () => {
     };
 
     fetchTouchData();
-  }, []);
+  }, [filter]);
 
   const chartData = {
-    labels: touchData.map((_, index) => index + 1), // 1 to n instead of touchTime1, 2, etc.
+    labels: touchData.map((item) => item.name),
     datasets: [
       {
         label: "Touch Time (seconds)",
@@ -116,10 +148,13 @@ const PatientDashboard = () => {
   return (
     <div className="patient-dashboard">
       <TopBar />
-      <div className="dashboard-container">
-        <h2 className="dashboard-heading">Touch Time Dashboard</h2>
+      <div
+        className="dashboard-container"
+        style={{ backgroundColor: "white", marginTop: "60px" }}
+      >
+        <h2 className="dashboard-heading ">Touch Time Dashboard</h2>
 
-        {patient ? (
+        {patient && (
           <div className="patient-info">
             <h3>Patient Information</h3>
             <ul>
@@ -140,9 +175,20 @@ const PatientDashboard = () => {
               </li>
             </ul>
           </div>
-        ) : (
-          <></>
         )}
+
+        <div className="filter-section">
+          <label htmlFor="filter">Filter by:</label>
+          <select
+            id="filter"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          >
+            <option value="daily">Days</option>
+            <option value="weekly">Weeks</option>
+            <option value="monthly">Months</option>
+          </select>
+        </div>
 
         <div className="avg-time">
           <div className="circle-progress">
@@ -173,7 +219,7 @@ const PatientDashboard = () => {
         </div>
 
         <Link to="/">
-          <button className="home-btn">Go to Home</button>
+          <button className="home-btn">Back To Dashboard</button>
         </Link>
       </div>
     </div>

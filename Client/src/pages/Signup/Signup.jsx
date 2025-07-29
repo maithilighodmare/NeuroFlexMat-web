@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
 export default function SignUp() {
@@ -22,6 +20,7 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(form);
 
     try {
       const res = await axios.post("http://localhost:4000/user/signup", form);
@@ -30,49 +29,15 @@ export default function SignUp() {
         email: form.email,
         role: form.role,
         age: form.age,
-        picture: "https://placehold.co/96x96", // Placeholder image
+        picture: "https://placehold.co/96x96",
       };
       localStorage.setItem("user", JSON.stringify(userData));
       alert("Signup successful!");
-      navigate("/profile"); // Replace with your profile route
+      navigate("/profile");
     } catch (err) {
       const msg = err.response?.data?.message || "Signup failed";
       alert(msg);
     }
-  };
-
-  const handleGoogleSuccess = async (credentialResponse) => {
-    const decoded = jwtDecode(credentialResponse.credential);
-    console.log("Google User Info:", decoded);
-
-    const userData = {
-      name: decoded.name,
-      email: decoded.email,
-      role: "patient", // Default role
-      age: 0, // Unknown from Google
-      picture: decoded.picture,
-    };
-
-    try {
-      await axios.post("http://localhost:4000/user/signup", {
-        name: decoded.name,
-        email: decoded.email,
-        password: decoded.sub,
-        age: 0,
-        role: "patient",
-      });
-
-      localStorage.setItem("user", JSON.stringify(userData));
-      alert("Google signup successful!");
-      navigate("/profile"); // Redirect to user profile
-    } catch (err) {
-      const msg = err.response?.data?.message || "Google signup failed";
-      alert(msg);
-    }
-  };
-
-  const handleGoogleError = () => {
-    alert("Google Sign-Up Failed");
   };
 
   return (
@@ -124,25 +89,10 @@ export default function SignUp() {
               required
               onChange={handleChange}
             />
-
-            {/* <label>
-              <input type="checkbox" required /> I agree to the{" "}
-              <a href="#" className="terms-link">
-                Terms & Conditions
-              </a>
-            </label> */}
-
             <button type="submit" className="signup-btn">
               Sign up
             </button>
           </form>
-
-          <div className="auth-socials">
-            <GoogleLogin
-              onSuccess={handleGoogleSuccess}
-              onError={handleGoogleError}
-            />
-          </div>
 
           <p className="bottom-link">
             Already have an account? <Link to="/login">Log in</Link>

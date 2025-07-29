@@ -1,0 +1,51 @@
+.support-page {
+  padding: 2rem;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  
+}
+
+.support-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #003366;
+  margin-top: 40px;
+}
+
+.support-section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.support-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: #005699;
+}
+
+.support-section p,
+.support-section li {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.support-section ul,
+.support-section ol {
+  padding-left: 1.25rem;
+}
+
+.support-section a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.support-section a:hover {
+  text-decoration: underline;
+}

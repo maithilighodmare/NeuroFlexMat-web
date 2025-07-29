@@ -10,8 +10,8 @@ const TopBar = () => {
   const [showSettings, setShowSettings] = useState(false);
 
   const handleSupportClick = () => {
-    // Scroll to contact section (if exists)
-    window.location.href = "/#contact";
+ navigate("/support");
+    
   };
 
   // Get user from localStorage
@@ -36,11 +36,15 @@ const TopBar = () => {
 
   return (
     <div className="topbar">
-      <div className="topbar-left">
+      <div
+        className="topbar-left clickable"
+        onClick={() => navigate("/profile")}
+        title="Go to Profile"
+      >
         <div className="initials-circle">{getInitials(user.email)}</div>
         <div className="user-info">
           <div className="username">{user.email}</div>
-          <div className="user-role">User</div>
+          <div className="user-role " style={{color:"white"}}>User</div>
         </div>
       </div>
 
