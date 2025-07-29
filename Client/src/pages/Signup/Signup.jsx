@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 export default function SignUp() {
   const navigate = useNavigate();
 
@@ -41,71 +42,71 @@ export default function SignUp() {
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-left">
-        <Link to="/">
-          <div className="logo cursor-pointer">🩺NeuroFlex</div>
-        </Link>
-        <div className="signup-card">
-          <h2>Create an account</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              required
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-              onChange={handleChange}
-            />
-            <select
-              name="role"
-              required
-              defaultValue=""
-              onChange={handleChange}
-            >
-              <option value="" disabled>
-                Select your role
-              </option>
-              <option value="patient">Patient</option>
-              <option value="therapist">Therapist</option>
-            </select>
-            <input
-              type="number"
-              name="age"
-              placeholder="Enter your age"
-              required
-              onChange={handleChange}
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              required
-              onChange={handleChange}
-            />
-            <button type="submit" className="signup-btn">
-              Sign up
-            </button>
-          </form>
+    <div>
+      <Navbar />
+      <div className="signup-container">
+        <div className="signup-left">
+          <div className="sp cursor-pointer">Sign Up</div>
 
-          <p className="bottom-link">
-            Already have an account? <Link to="/login">Log in</Link>
-          </p>
+          <div className="signup-card">
+            <h2>Create an account</h2>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required
+                onChange={handleChange}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+                onChange={handleChange}
+              />
+              <select
+                name="role"
+                required
+                defaultValue=""
+                onChange={handleChange}
+              >
+                <option value="" disabled>
+                  Select your role
+                </option>
+                <option value="patient">Patient</option>
+                <option value="therapist">Therapist</option>
+              </select>
+              <input
+                type="number"
+                name="age"
+                placeholder="Enter your age"
+                required
+                onChange={handleChange}
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+                onChange={handleChange}
+              />
+              <button type="submit" className="signup-btn">
+                Sign up
+              </button>
+            </form>
+
+            <p className="bottom-link">
+              Already have an account? <Link to="/login">Log in</Link>
+            </p>
+          </div>
+        </div>
+
+        <div className="signup-right">
+          <img src="/login.png" alt="Signup Illustration" />
         </div>
       </div>
-
-      <div className="signup-right">
-        <img
-          src="https://i.ibb.co/vCjydVyr/lsimg-2.png"
-          alt="Signup Illustration"
-        />
-      </div>
+      <Footer />
     </div>
   );
 }

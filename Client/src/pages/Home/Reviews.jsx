@@ -4,14 +4,14 @@ import "./Home.css";
 const reviewsData = [
   {
     id: 1,
-    avatar: "https://randomuser.me/api/portraits/women/1.jpg",
+    avatar: "/aashu.jpeg",
     rating: 5,
     text: "Stepped on it once and my balance improved so much that I can now dodge my toddler’s flying toys like a ninja. 10/10 would recommend! 😊",
     bgColor: "#d8f3f0",
   },
   {
     id: 2,
-    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
+    avatar: "/dipak.png",
     rating: 4,
     text: "My physiotherapist is out of a job because this mat does all the work. Sorry, doc!",
     bgColor: "#1e2b4b",
@@ -19,21 +19,21 @@ const reviewsData = [
   },
   {
     id: 3,
-    avatar: "https://randomuser.me/api/portraits/women/3.jpg",
+    avatar: "/maithili.jpeg",
     rating: 5,
     text: "Felt like a wobbly jellyfish before, but after a few sessions, I walk like I’m on a fashion runway. NeuroFlex should sponsor me! 🔥🔥",
     bgColor: "#d8f3f0",
   },
   {
     id: 4,
-    avatar: "https://randomuser.me/api/portraits/men/4.jpg",
+    avatar: "/yogesh.png",
     rating: 4,
     text: "Using it twice a day and my lower back pain is almost gone. It’s like standing on science!",
     bgColor: "#fdf1d6",
   },
   {
     id: 5,
-    avatar: "https://randomuser.me/api/portraits/men/5.jpg",
+    avatar: "/amogh.png",
     rating: 5,
     text: "I made my grandparents stand on it and now they race up the stairs. What magic is this?!",
     bgColor: "#e0ffe3",
@@ -56,7 +56,11 @@ const Reviews = () => {
     <section id="reviews" className="reviews-section">
       <h2>Reviews</h2>
       <div className="reviews-wrapper">
-        <button className="scroll-btn left" onClick={handlePrev} disabled={startIndex === 0}>
+        <button
+          className="scroll-btn left"
+          onClick={handlePrev}
+          disabled={startIndex === 0}
+        >
           &#8249;
         </button>
 

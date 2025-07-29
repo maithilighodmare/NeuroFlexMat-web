@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+} from "react-icons/fa";
 import "./styles.css";
 
 const Footer = () => {
@@ -27,15 +32,27 @@ const Footer = () => {
       <div className="footer">
         {/* Left Section */}
         <div className="footer-left">
-          <div className="footer-logo">🔵NeuroFlex</div>
+          <div className="footer-logo">🩺NeuroFlex
+</div>
           <p>
-           NeuroFlex Mat is designed to enhance balance, posture, and overall well-being through intelligent physiotherapy technology. Trusted by experts and loved by users, it brings innovation to everyday health and rehabilitation.
+            NeuroFlex Mat is designed to enhance balance, posture, and overall
+            well-being through intelligent physiotherapy technology. Trusted by
+            experts and loved by users, it brings innovation to everyday health
+            and rehabilitation.
           </p>
           <div className="footer-social">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaTwitter /></a>
-            <a href="#"><FaLinkedinIn /></a>
-            <a href="#"><FaInstagram /></a>
+            <a href="#">
+              <FaFacebookF />
+            </a>
+            <a href="#">
+              <FaTwitter />
+            </a>
+            <a href="#">
+              <FaLinkedinIn />
+            </a>
+            <a href="#">
+              <FaInstagram />
+            </a>
           </div>
         </div>
 
@@ -44,24 +61,48 @@ const Footer = () => {
           <div>
             <h3>Quick Link</h3>
             <ul className="footer-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Doctor</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Doctor</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3>Quick Link</h3>
             <ul className="footer-links">
-              <li><a href="#">Cardiology</a></li>
-              <li><a href="#">Neurology</a></li>
-              <li><a href="#">Gastroenterology</a></li>
-              <li><a href="#">Routine Checkup</a></li>
-              <li><a href="#">Orthopedics</a></li>
-              <li><a href="#">Dental Surgery</a></li>
+              <li>
+                <a href="#">Cardiology</a>
+              </li>
+              <li>
+                <a href="#">Neurology</a>
+              </li>
+              <li>
+                <a href="#">Gastroenterology</a>
+              </li>
+              <li>
+                <a href="#">Routine Checkup</a>
+              </li>
+              <li>
+                <a href="#">Orthopedics</a>
+              </li>
+              <li>
+                <a href="#">Dental Surgery</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -84,7 +125,9 @@ const Footer = () => {
 
       {/* Scroll to Top Button */}
       {showScroll && (
-        <button className="scroll-top" onClick={scrollToTop}>⬆</button>
+        <button className="scroll-top" onClick={scrollToTop}>
+          ⬆
+        </button>
       )}
     </footer>
   );

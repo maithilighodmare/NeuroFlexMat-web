@@ -28,27 +28,27 @@ export default function UserProfile() {
     );
   }
 
+  const initials = user.name
+    ?.split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase();
+
   return (
     <>
       <Navbar />
       <div className="profile-page">
-        <h1 className="profile-title">Profile</h1>
-        <p className="profile-tagline">Welcome back, {user.name} 👋</p>
-
         <div className="profile-card">
-          {/* Left Column */}
+          {/* Left Section */}
           <div className="profile-left">
-            <img
-              src={user.picture || "https://placehold.co/150x150"}
-              alt="Profile"
-              className="profile-avatar"
-            />
+            <div className="profile-initials">{initials}</div>
             <h2>{user.name}</h2>
             <p className="user-role">{user.role || "User"}</p>
             <p className="user-email">{user.email}</p>
+
           </div>
 
-          {/* Right Column */}
+          {/* Right Section */}
           <div className="profile-right">
             <div className="info-group">
               <label>Username</label>
