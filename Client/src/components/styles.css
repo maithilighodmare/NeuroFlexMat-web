@@ -235,7 +235,7 @@
 }
 
 .footer-links a:hover {
-  color: #0097a7;
+  color: #2c3c3e;
   font-weight: bold;
 }
 
@@ -250,7 +250,7 @@
 .footer-bottom {
   text-align: center;
   padding: 15px;
-  background: #051b5c;
+  background: #000000;
   color: #ffffff;
   font-size: 12px;
   

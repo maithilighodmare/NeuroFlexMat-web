@@ -34,17 +34,24 @@ const PatientModal = ({ patient, onClose }) => {
         </button>
 
         <h2>{patient.name}'s Details</h2>
-       <div className="patient-info">
-  <div className="info-column">
-    <p><strong>Gender:</strong> {patient.gender}</p>
-    <p><strong>Age:</strong> {patient.age}</p>
-  </div>
-  <div className="info-column">
-    <p><strong>Weight:</strong> {patient.weight}</p>
-    <p><strong>Condition:</strong> {patient.condition}</p>
-  </div>
-</div>
-
+        <div className="patient-info">
+          <div className="info-column">
+            <p>
+              <strong>Gender:</strong> {patient.gender}
+            </p>
+            <p>
+              <strong>Age:</strong> {patient.age}
+            </p>
+          </div>
+          <div className="info-column">
+            <p>
+              <strong>Weight:</strong> {patient.weight}
+            </p>
+            <p>
+              <strong>Condition:</strong> {patient.condition}
+            </p>
+          </div>
+        </div>
 
         <div className="patient-graph">
           <h3>Progress Chart</h3>

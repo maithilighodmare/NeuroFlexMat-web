@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./UserProfile.css";
 import Navbar from "../../components/Navbar";
+import EditProfileModal from "../../components/EditProfileModal";
+
 import { Link } from "react-router-dom";
 
 export default function UserProfile() {
   const [user, setUser] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSave = (updatedData) => {
+    const updatedUser = { ...user, ...updatedData };
+    setUser(updatedUser);
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+  };
 
   useEffect(() => {
     try {
@@ -45,11 +54,17 @@ export default function UserProfile() {
             <h2>{user.name}</h2>
             <p className="user-role">{user.role || "User"}</p>
             <p className="user-email">{user.email}</p>
-
           </div>
 
           {/* Right Section */}
           <div className="profile-right">
+            <div
+              className="edit-profile-btn"
+              onClick={() => setShowModal(true)}
+            >
+              <i className="fas fa-user-edit"></i> Edit Profile
+            </div>
+
             <div className="info-group">
               <label>Username</label>
               <input type="text" value={user.name} readOnly />
@@ -71,7 +86,16 @@ export default function UserProfile() {
             </Link>
           </div>
         </div>
+
       </div>
+      {showModal && (
+  <EditProfileModal
+    user={user}
+    onClose={() => setShowModal(false)}
+    onSave={handleSave}
+  />
+)}
+
     </>
   );
 }
