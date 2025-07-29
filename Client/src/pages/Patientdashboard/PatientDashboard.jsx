@@ -55,10 +55,12 @@ const PatientDashboard = () => {
               parseInt(b.replace("touchTime", ""))
           );
 
-        const formatted = filtered.map(([key, value]) => ({
-          name: key,
-          time: parseFloat((value / 1000).toFixed(2)),
-        }));
+        const formatted = filtered
+          .map(([key, value]) => ({
+            name: key,
+            time: parseFloat((value / 1000).toFixed(2)),
+          }))
+          .slice(-15); // Get the last 15 entries
 
         const avg =
           formatted.reduce((acc, item) => acc + item.time, 0) /
@@ -78,7 +80,7 @@ const PatientDashboard = () => {
   }, []);
 
   const chartData = {
-    labels: touchData.map((item) => item.name),
+    labels: touchData.map((_, index) => index + 1), // 1 to n instead of touchTime1, 2, etc.
     datasets: [
       {
         label: "Touch Time (seconds)",
@@ -114,7 +116,6 @@ const PatientDashboard = () => {
   return (
     <div className="patient-dashboard">
       <TopBar />
-
       <div className="dashboard-container">
         <h2 className="dashboard-heading">Touch Time Dashboard</h2>
 
@@ -140,9 +141,7 @@ const PatientDashboard = () => {
             </ul>
           </div>
         ) : (
-          <p style={{ color: "#888" }}>
-            (No patient selected — navigate from doctor dashboard)
-          </p>
+          <></>
         )}
 
         <div className="avg-time">
