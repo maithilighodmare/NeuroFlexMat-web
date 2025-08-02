@@ -1,51 +1,70 @@
+/* Page Layout */
+
 .support-page {
-  padding: 2rem;
-  background-color: #f0f4f8;
+  background-color: #f3f4f6;
   min-height: 100vh;
-  color: #333;
-  font-family: 'Segoe UI', sans-serif;
-  
+  font-family: 'Inter', sans-serif;
+  color: #1f2937;
+ 
 }
 
-.support-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+/* Hero Section */
+
+.hero-section {
+  background: rgba(0, 173, 193, 0.981);
+  color: white;
   text-align: center;
-  color: #003366;
-  margin-top: 40px;
+  padding: 5.5rem 1rem 2.5rem; /* 5.5rem top = navbar height + spacing */
+  margin: 0 auto;
+  border-radius: 1.25rem;
+  max-width: 68rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
-.support-section {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
-.support-section h2 {
-  font-size: 1.3rem;
+.hero-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 0.75rem;
-  color: #005699;
 }
 
-.support-section p,
-.support-section li {
-  font-size: 1rem;
+.hero-section p {
+  font-size: 1.05rem;
+  max-width: 42rem;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
-.support-section ul,
-.support-section ol {
+/* Section Wrapper */
+.section {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Info / Contact Cards */
+.info-card,
+.contact-card {
+  background-color: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  line-height: 1.7;
+}
+
+/* Troubleshooting List */
+.troubleshooting-list {
+  list-style-type: decimal;
   padding-left: 1.25rem;
+  font-size: 1rem;
 }
 
-.support-section a {
-  color: #0077cc;
-  text-decoration: none;
-}
-
-.support-section a:hover {
-  text-decoration: underline;
+.troubleshooting-list li + li {
+  margin-top: 0.5rem;
 }

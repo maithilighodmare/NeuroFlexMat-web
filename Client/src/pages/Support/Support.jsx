@@ -4,86 +4,65 @@ import TopBar from "../../components/Topbar";
 
 const Support = () => {
   return (
-    <div>
-      <TopBar />
+    <div className="conatiner">
+       <TopBar />
+<div className="support-page">
+     
 
-      <div className="support-page">
-        <h1 className="support-heading">Support & Help</h1>
+      {/* Hero */}
+      <section className="hero-section">
+        <h1>Support & Help Center</h1>
+        <p>
+          We're here to make your Smart Therapy Mat experience smooth and easy.
+          Whether you need guidance, tips, or troubleshooting — you'll find it
+          all here.
+        </p>
+      </section>
 
-        <section className="support-section">
-          <h2>📋 How the Mat Works</h2>
-          <p>
-            The smart therapy mat is equipped with pressure sensors that detect
-            your movements and postures. These signals are collected and
-            processed in real-time to monitor progress and suggest improvements.
-            Data is sent wirelessly to your dashboard for analysis and visual
-            feedback.
-          </p>
-        </section>
+      {/* How the Mat Works */}
+      <section className="section">
+        <h2 className="section-title">🧠 How the Mat Works</h2>
+        <div className="info-card">
+          The Smart Therapy Mat is embedded with pressure sensors that detect
+          body posture and movements in real time. These signals are sent
+          wirelessly to your app dashboard, where you get real-time analytics
+          and suggestions for improvement.
+        </div>
+      </section>
 
-        <section className="support-section">
-          <h2>🎥 Helpful Videos</h2>
-          <ul>
+      {/* Troubleshooting */}
+      <section className="section">
+        <h2 className="section-title">🛠 If the Mat is Not Working</h2>
+        <div className="info-card">
+          <ol className="troubleshooting-list">
+            <li>Ensure the mat is powered and turned on.</li>
+            <li>Verify Bluetooth or Wi-Fi connection is active.</li>
+            <li>Restart both the mat and your connected device.</li>
+            <li>Still not working? Try resetting from the app settings.</li>
             <li>
-              <a
-                href="https://www.youtube.com/watch?v=your_mat_intro_video"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Introduction to Smart Therapy Mat
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/watch?v=your_exercise_video"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Guided Exercises with the Mat
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/watch?v=your_troubleshoot_video"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Troubleshooting & Setup Guide
-              </a>
-            </li>
-          </ul>
-        </section>
-
-        <section className="support-section">
-          <h2>🛠 What to Do If Mat is Not Working</h2>
-          <ol>
-            <li>
-              Check if the mat is properly connected to power and turned on.
-            </li>
-            <li>
-              Ensure Bluetooth or Wi-Fi is enabled and connected to your system.
-            </li>
-            <li>Restart the mat and your connected device.</li>
-            <li>Refer to the troubleshooting video above.</li>
-            <li>
-              Still not working? Email us at{" "}
+              Still stuck? Reach us at{" "}
               <strong>support@matcare.com</strong>
             </li>
           </ol>
-        </section>
+        </div>
+      </section>
 
-        <section className="support-section">
-          <h2>📧 Contact Support</h2>
+      {/* Contact Info */}
+      <section className="section pb-12">
+        <h2 className="section-title">📞 Contact Support</h2>
+        <div className="contact-card">
           <p>
-            Email us at: <strong>support@matcare.com</strong>
+            Email: <strong>support@matcare.com</strong>
           </p>
           <p>
             Phone: <strong>+91-9876543210</strong>
           </p>
-          <p>Available: Mon - Sat | 10:00 AM - 6:00 PM IST</p>
-        </section>
-      </div>
+          <p>Support Hours: Mon - Sat | 10:00 AM – 6:00 PM IST</p>
+        </div>
+      </section>
     </div>
+    </div>
+    
   );
 };
 
